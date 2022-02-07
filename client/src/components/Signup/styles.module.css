@@ -5,6 +5,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+		url(/public/background.jfif);
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 }
 
 .signup_form_container {
@@ -22,7 +28,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #3bb19b;
+	background-color: #3b51b1;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
@@ -92,7 +98,7 @@
 }
 
 .green_btn {
-	background-color: #3bb19b;
+	background-color: #3b51b1;
 	color: white;
 	margin: 10px;
 }
