@@ -14,6 +14,9 @@ const Main = () => {
 					Logout
 				</button>
 			</nav>
+			<div className={styles.inner_container}>
+				<h1 className={styles.heading}>Welcome To FakeBook</h1>
+			</div>
 		</div>
 	);
 };
