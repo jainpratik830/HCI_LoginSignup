@@ -19,8 +19,8 @@ module.exports = async (email, subject, text) => {
 			service: 'gmail',
 			host: 'smtp.gmail.com',
 			auth: {
-			  user: 'btechproject2022@gmail.com',
-			  pass: 'Btechproject2022!'
+			  user: process.env.user,
+			  pass: process.env.pass
 			}
 		  }));
 
