@@ -9,7 +9,7 @@ cd ./client
 npm install
 npm start 
 
-Install dependencies and starting up the server
+// Install dependencies and starting up the server
 
 cd ./server
 npm install
