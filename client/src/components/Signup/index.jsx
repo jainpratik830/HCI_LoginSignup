@@ -2,6 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Signup = () => {
 	const [data, setData] = useState({
@@ -11,6 +14,8 @@ const Signup = () => {
 		password: "",
 	});
 	const [error, setError] = useState("");
+	const [passwordShow, setPasswordShow] = useState(false);
+
 	const navigate = useNavigate();
 
 	const handleChange = ({ currentTarget: input }) => {
@@ -76,15 +81,24 @@ const Signup = () => {
 							required
 							className={styles.input}
 						/>
-						<input
-							type="password"
-							placeholder="Password"
-							name="password"
-							onChange={handleChange}
-							value={data.password}
-							required
-							className={styles.input}
-						/>
+						<div className={styles.div_input}>
+							<input
+								type={passwordShow ? 'text' : 'password'}
+								placeholder='Password'
+								name='password'
+								onChange={handleChange}
+								value={data.password}
+								required
+								className={styles.input}
+							/>
+							<i
+								className={styles.i}
+								onClick={() =>
+									setPasswordShow(passwordShow ? false : true)
+								}>
+								{eye}
+							</i>
+						</div>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
 							Sign Up

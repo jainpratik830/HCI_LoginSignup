@@ -23,6 +23,24 @@
 		0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
 }
 
+.div_input {
+	width: 97%;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+
+.div_input input {
+	width: 70%;
+	padding-right: 30%;
+}
+
+.div_input i {
+	position: absolute;
+	right: 1vw;
+	top: 2vh;
+}
+
 .input {
 	outline: none;
 	border: none;
@@ -50,7 +68,7 @@
 
 .error_msg,
 .success_msg {
-	width: 80%;
+	width: 90%;
 	padding: 15px;
 	margin: 0.5% 0;
 	font-size: 14px;

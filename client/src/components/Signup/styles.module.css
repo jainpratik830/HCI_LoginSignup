@@ -62,6 +62,24 @@
 	margin-top: 0;
 }
 
+.div_input {
+	width: 130%;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+
+.div_input input {
+	width: 70%;
+	padding-right: 30%;
+}
+
+.div_input i {
+	position: absolute;
+	right: 1vw;
+	top: 2vh;
+}
+
 .input {
 	outline: none;
 	border: none;
@@ -74,7 +92,7 @@
 }
 
 .error_msg {
-	width: 90%;
+	width: 120%;
 	padding: 15px;
 	margin: 0.5% 0;
 	font-size: 1.09375vw;

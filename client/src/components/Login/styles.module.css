@@ -44,6 +44,24 @@
 	margin-top: 0;
 }
 
+.div_input {
+	width: 97%;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+
+.div_input input {
+	width: 70%;
+	padding-right: 30%;
+}
+
+.div_input i {
+	position: absolute;
+	right: 1vw;
+	top: 2vh;
+}
+
 .input {
 	outline: none;
 	border: none;

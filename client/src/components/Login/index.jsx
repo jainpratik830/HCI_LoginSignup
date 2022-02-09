@@ -1,23 +1,27 @@
-import { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import styles from "./styles.module.css";
+import { useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import styles from './styles.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Login = () => {
-	const [data, setData] = useState({ email: "", password: "" });
-	const [error, setError] = useState("");
+	const [data, setData] = useState({ email: '', password: '' });
+	const [error, setError] = useState('');
+	const [passwordShow, setPasswordShow] = useState(false);
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async e => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:8080/api/auth";
+			const url = 'http://localhost:8080/api/auth';
 			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
-			window.location = "/";
+			localStorage.setItem('token', res.data);
+			window.location = '/';
 		} catch (error) {
 			if (
 				error.response &&
@@ -33,39 +37,56 @@ const Login = () => {
 		<div className={styles.login_container}>
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
-					<form className={styles.form_container} onSubmit={handleSubmit}>
+					<form
+						className={styles.form_container}
+						onSubmit={handleSubmit}>
 						<h1>Login to Your Account</h1>
 						<input
-							type="email"
-							placeholder="Email"
-							name="email"
+							type='email'
+							placeholder='Email'
+							name='email'
 							onChange={handleChange}
 							value={data.email}
 							required
 							className={styles.input}
 						/>
-						<input
-							type="password"
-							placeholder="Password"
-							name="password"
-							onChange={handleChange}
-							value={data.password}
-							required
-							className={styles.input}
-						/>
-						<Link to="/forgot-password" style={{ alignSelf: "flex-start" }}>
-							<p style={{ padding: "0 15px" }}>Forgot Password ?</p>
+						<div className={styles.div_input}>
+							<input
+								type={passwordShow ? 'text' : 'password'}
+								placeholder='Password'
+								name='password'
+								onChange={handleChange}
+								value={data.password}
+								required
+								className={styles.input}
+							/>
+							<i
+								className={styles.i}
+								onClick={() =>
+									setPasswordShow(passwordShow ? false : true)
+								}>
+								{eye}
+							</i>
+						</div>
+						<Link
+							to='/forgot-password'
+							style={{ alignSelf: 'flex-start' }}>
+							<p style={{ padding: '0 15px' }}>
+								Forgot Password ?
+							</p>
 						</Link>
-						{error && <div className={styles.error_msg}>{error}</div>}
-						<button type="submit" className={styles.green_btn}>
+						{error && (
+							<div className={styles.error_msg}>{error}</div>
+						)}
+						<button type='submit' className={styles.green_btn}>
 							Sign In
 						</button>
 					</form>
 				</div>
 				<div className={styles.right}>
 					<h1>New Here ?</h1>
-					<Link to="/signup">
-						<button type="button" className={styles.white_btn}>
+					<Link to='/signup'>
+						<button type='button' className={styles.white_btn}>
 							Sign Up
 						</button>
 					</Link>
