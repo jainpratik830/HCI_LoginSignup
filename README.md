@@ -3,13 +3,13 @@
 ## Quick Start
 
 ```
-// Install dependencies for server & client
+// Install dependencies and starting up the client
 
 cd ./client
 npm install
 npm start 
 
-Starting up  the server
+Install dependencies and starting up the server
 
 cd ./server
 npm install
